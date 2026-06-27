@@ -1,5 +1,6 @@
-FROM ubuntu:22.04
-RUN apt update && apt install python3.11 -y && mkdir -p /app
-WORKDIR /app
-COPY my.py .
-CMD ["/usr/bin/python3.11","my.py"]
+FROM ubuntu:latest
+WORKDIR /var/www/html/
+RUN apt update && apt install apache2 -y && rm -rf /var/lib/apt/lists/*
+COPY index.html .
+CMD ["apachectl", "-D", "FOREGROUND"]
+EXPOSE 8081

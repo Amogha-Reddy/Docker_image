@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('build image'){
             steps{
-                sh 'docker build -t dapohttp:1.0 ."
+                sh 'docker build -t dapohttp:1.0 .'
             }
         }
         stage('deploy container'){
